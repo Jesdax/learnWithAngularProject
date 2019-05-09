@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   $isAuth = false;
+  $test = false;
 
   deviceOne = 'Machine à laver';
   deviceTwo = 'Télévision';
@@ -18,8 +19,16 @@ export class AppComponent {
         this.$isAuth = true;
       }, 4000
     );
+    setTimeout(
+      () => {
+      this.$test = true;
+      }, 2000
+    );
   }
   onAllumer() {
     console.log('Tout est allumer !');
+  }
+  onTest() {
+    alert('Attention !');
   }
 }
