@@ -21,7 +21,11 @@ export class AppComponent {
     {
       name: "Télévision",
       status: 'éteint'
-    }
+    },
+    {
+      name: "Iphone",
+      status: 'prévision'
+    },
   ];
 
 

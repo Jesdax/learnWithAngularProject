@@ -24,6 +24,8 @@ export class DeviceComponent implements OnInit {
       return 'green';
     } else if (this.deviceStatus === 'éteint') {
       return 'red';
+    } else if (this.deviceStatus === 'prévision') {
+      return 'orange';
     }
   }
 }
