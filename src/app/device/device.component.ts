@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
+  deviceName = 'Machine à laver';
+  deviceStatus = 'éteint';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getStatus() {
+    return this.deviceStatus;
   }
 
 }
