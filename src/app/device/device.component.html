@@ -1,7 +1,7 @@
-<li class="list-group-item">
+<li [ngClass]="{'list-group-item': true, 'list-group-item-success': deviceStatus === 'allumé', 'list-group-item-danger': deviceStatus === 'éteint'}">
   <div style="width: 20px;height: 20px; background-color: red;"
   *ngIf="deviceStatus === 'éteint'"></div>
-  <h4>Appareil : {{ deviceName }} -- Status : {{ getStatus()}}</h4>
+  <h4 [ngStyle]="{color: getColor()}">Appareil : {{ deviceName }} -- Status : {{ getStatus()}}</h4>
   <input type="text" class="form-control" [(ngModel)]="deviceName" >
 <!--  <input type="text" class="form-control" [(ngModel)]="deviceStatus">-->
 </li>
