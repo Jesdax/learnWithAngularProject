@@ -9,12 +9,22 @@ export class AppComponent {
   $isAuth = false;
   // $test = false;
 
-  deviceOne = 'Machine à laver';
-  deviceTwo = 'Télévision';
-  devicethree = 'Ordinateur';
-/*  deviceTestOne = 'Device 1';
-  deviceTestTwo = 'Device 2';
-  deviceTestThree = 'Device 3';*/
+  devices = [
+    {
+      name: "Machine à laver",
+      status: 'allumé'
+    },
+    {
+      name: "Machine à remonté dans le temps",
+      status: 'allumé'
+    },
+    {
+      name: "Télévision",
+      status: 'éteint'
+    }
+  ];
+
+
 
   constructor() {
     setTimeout(
