@@ -12,6 +12,9 @@ export class AppComponent {
   deviceOne = 'Machine à laver';
   deviceTwo = 'Télévision';
   devicethree = 'Ordinateur';
+  deviceTestOne = 'Device 1';
+  deviceTestTwo = 'Device 2';
+  deviceTestThree = 'Device 3';
 
   constructor() {
     setTimeout(
