@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   $isAuth = false;
-  $test = false;
+  // $test = false;
 
   deviceOne = 'Machine à laver';
   deviceTwo = 'Télévision';
   devicethree = 'Ordinateur';
-  deviceTestOne = 'Device 1';
+/*  deviceTestOne = 'Device 1';
   deviceTestTwo = 'Device 2';
-  deviceTestThree = 'Device 3';
+  deviceTestThree = 'Device 3';*/
 
   constructor() {
     setTimeout(
@@ -22,16 +22,16 @@ export class AppComponent {
         this.$isAuth = true;
       }, 4000
     );
-    setTimeout(
+    /*setTimeout(
       () => {
       this.$test = true;
       }, 2000
-    );
+    );*/
   }
   onAllumer() {
     console.log('Tout est allumer !');
   }
-  onTest() {
+  /*onTest() {
     alert('Attention !');
-  }
+  }*/
 }
