@@ -13,10 +13,11 @@ import { RouterModule, Routes} from '@angular/router';
 import {AuthService} from './services/auth.service';
 import { SingleDeviceComponent } from './single-device/single-device.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'devices', component: DeviceViewComponent },
-  { path: 'devices/:id', component: SingleDeviceComponent },
+  { path: 'devices', canActivate: [AuthGuard], component: DeviceViewComponent },
+  { path: 'devices/:id', canActivate: [AuthGuard], component: SingleDeviceComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: DeviceViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     DeviceServices,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
