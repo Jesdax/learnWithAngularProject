@@ -7,19 +7,32 @@ import { FirstCompComponent } from './first-comp/first-comp.component';
 import { DeviceComponent } from './device/device.component';
 
 import { DeviceServices } from './services/device.services';
+import { AuthComponent } from './auth/auth.component';
+import { DeviceViewComponent } from './device-view/device-view.component';
+import { RouterModule, Routes} from '@angular/router';
+import {AuthService} from './services/auth.service';
 
+const appRoutes: Routes = [
+  { path: 'devices', component: DeviceViewComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: '', component: DeviceViewComponent }
+  ];
 @NgModule({
   declarations: [
     AppComponent,
     FirstCompComponent,
-    DeviceComponent
+    DeviceComponent,
+    AuthComponent,
+    DeviceViewComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    DeviceServices
+    DeviceServices,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
