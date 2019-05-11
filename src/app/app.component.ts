@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import {reject} from 'q';
+import {Component, OnInit} from '@angular/core';
+import {DeviceServices} from './services/device.services';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   $isAuth = false;
 
   lastUpdate = new Promise(
-    (resolve, reject) => {
+    // tslint:disable-next-line:no-shadowed-variable
+    (resolve) => {
         const date = new Date();
         setTimeout(
           () => {
@@ -19,28 +20,10 @@ export class AppComponent {
         );
       }
   );
-  devices = [
-    {
-      name: "Machine à laver",
-      status: 'allumé'
-    },
-    {
-      name: "Machine à remonté dans le temps",
-      status: 'allumé'
-    },
-    {
-      name: "Télévision",
-      status: 'éteint'
-    },
-    {
-      name: "Iphone",
-      status: 'prévision'
-    },
-  ];
 
+  devices: any[];
 
-
-  constructor() {
+  constructor(private deviceServices: DeviceServices) {
     setTimeout(
       () => {
         this.$isAuth = true;
@@ -52,8 +35,16 @@ export class AppComponent {
       }, 2000
     );*/
   }
+  ngOnInit(): void {
+    this.devices = this.deviceServices.devices;
+  }
+
   onAllumer() {
-    console.log('Tout est allumer !');
+    this.deviceServices.switchOnAll();
+  }
+
+  onOff() {
+    this.deviceServices.switchOffAll();
   }
   /*onTest() {
     alert('Attention !');
