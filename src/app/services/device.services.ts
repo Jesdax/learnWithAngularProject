@@ -1,26 +1,29 @@
 export class DeviceServices {
   devices = [
     {
+      id: 1,
       name: "Télévision",
       status: 'allumé'
     },
     {
+      id: 2,
       name: "Machine à laver",
       status: 'allumé'
     },
     {
+      id: 3,
       name: "Ordinateur MSI",
       status: 'allumé'
-    },
-    {
-      name: "PS4",
-      status: 'prévision'
-    },
-    {
-      name: "Wii",
-      status: 'éteint'
-    },
+    }
   ];
+
+  getDeviceById(id: number) {
+    return this.devices.find(
+      (deviceObject) => {
+        return deviceObject.id === id;
+      }
+    );
+  }
 
   switchOnAll() {
     for (let device of this.devices) {
