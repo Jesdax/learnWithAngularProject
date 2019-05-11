@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     setTimeout(
       () => {
         this.$isAuth = true;
-      }, 4000
+      }, 1000
     );
     /*setTimeout(
       () => {
@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
 
   onOff() {
     this.deviceServices.switchOffAll();
+  }
+
+  onPrevent() {
+    this.deviceServices.switchPreventAll();
   }
   /*onTest() {
     alert('Attention !');

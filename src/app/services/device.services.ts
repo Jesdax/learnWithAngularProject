@@ -1,23 +1,23 @@
 export class DeviceServices {
   devices = [
     {
-      name: "Samsung s10+",
+      name: "Télévision",
       status: 'allumé'
     },
     {
-      name: "Huawei p30 pro",
+      name: "Machine à laver",
       status: 'allumé'
     },
     {
-      name: "Iphone XS",
+      name: "Ordinateur MSI",
       status: 'allumé'
     },
     {
-      name: "Nokia",
+      name: "PS4",
       status: 'prévision'
     },
     {
-      name: "Google phone",
+      name: "Wii",
       status: 'éteint'
     },
   ];
@@ -34,11 +34,19 @@ export class DeviceServices {
     }
   }
 
+  switchPreventAll() {
+    for (let device of this.devices) {
+      device.status = 'en attente';
+    }
+  }
+
   switchOnOne(index: number) {
     this.devices[index].status = 'allumé';
   }
   switchOffOne(index: number) {
     this.devices[index].status = 'éteint';
   }
-
+  switchPreventOne(index: number) {
+    this.devices[index].status = 'en attente';
+  }
 }

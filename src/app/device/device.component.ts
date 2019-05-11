@@ -38,4 +38,8 @@ export class DeviceComponent implements OnInit {
   onSwitchOff() {
     this.deviceServices.switchOffOne(this.indexOfDevice);
   }
+
+  onSwitchPrevent() {
+    this.deviceServices.switchPreventOne(this.indexOfDevice);
+  }
 }

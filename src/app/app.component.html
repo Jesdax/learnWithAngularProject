@@ -10,6 +10,9 @@
       <button class="btn btn-success"
               [disabled]="!$isAuth"
               (click)="onAllumer()">Tout allumer</button>
+      <button class="btn btn-warning" (click)="onPrevent()">
+        Mettre en attente
+      </button>
       <button class="btn btn-danger"
               (click)="onOff()"> Tout éteindre
       </button>
