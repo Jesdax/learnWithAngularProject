@@ -3,10 +3,13 @@
 
   <p>Mise à jour : {{ lastUpdate | async | date: 'short' | uppercase }}</p>
   <ul class="list-group">
-    <app-device *ngFor="let device of devices; let i = index" [indexOfDevice]="i" [deviceName]="device.name" [deviceStatus]="device.status" [id]="device.id"></app-device>
+    <app-device *ngFor="let device of devices; let i = index"
+                [indexOfDevice]="i"
+                [deviceName]="device.name"
+                [deviceStatus]="device.status"
+                [id]="device.id"></app-device>
   </ul>
   <button class="btn btn-success"
-          [disabled]="!$isAuth"
           (click)="onAllumer()">Tout allumer</button>
   <button class="btn btn-warning" (click)="onPrevent()">
     Mettre en attente
