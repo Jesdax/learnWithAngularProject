@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DeviceServices} from '../services/device.services';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-device-view',
   templateUrl: './device-view.component.html',
   styleUrls: ['./device-view.component.scss']
 })
-export class DeviceViewComponent implements OnInit {
+export class DeviceViewComponent implements OnInit, OnDestroy {
 
   $isAuth = false;
 
@@ -23,7 +24,7 @@ export class DeviceViewComponent implements OnInit {
   );
 
   devices: any[];
-
+  deviceSubscription: Subscription;
   constructor(private deviceServices: DeviceServices) {
     setTimeout(
       () => {
@@ -37,7 +38,12 @@ export class DeviceViewComponent implements OnInit {
     );*/
   }
   ngOnInit(): void {
-    this.devices = this.deviceServices.devices;
+    this.deviceSubscription = this.deviceServices.deviceSubject.subscribe(
+      (devices: any[]) => {
+        this.devices = devices;
+      }
+    );
+    this.deviceServices.emitDeviceSubject();
   }
 
   onAllumer() {
@@ -62,5 +68,8 @@ export class DeviceViewComponent implements OnInit {
   /*onTest() {
     alert('Attention !');
   }*/
+  ngOnDestroy(): void {
+    this.deviceSubscription.unsubscribe();
+  }
 
 }
